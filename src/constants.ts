@@ -38,6 +38,11 @@ export const FONT_COLOR = "gray";
 
 export const SCORE_INCREMENT = 0.01;
 
+export const CLOUDS_IMAGE = "images/clouds.png";
+export const CLOUDS_IMAGE_WDITH = 576;
+export const CLOUDS_IMAGE_HEIGHT = 324;
+export const CLOUDS_SPEED = 0.02;
+
 export const OBSTACLES_CONFIG = [
     { width: 45 * OBSTACLE_SCALE, height: 45 * OBSTACLE_SCALE, image: "images/box_1.png" },
     { width: 35 * OBSTACLE_SCALE, height: 35 * OBSTACLE_SCALE, image: "images/box_2.png" },

@@ -1,3 +1,4 @@
+import Clouds from "./Clouds";
 import Ground from "./Ground";
 import ObstaclesController from "./ObstaclesController";
 import Player from "./Player";
@@ -17,6 +18,7 @@ let waitingToStart = true;
 let player: Player;
 let ground: Ground;
 let score: Score;
+let clouds: Clouds;
 let obstaclesController: ObstaclesController;
 
 function getScaleRatio(): number {
@@ -61,6 +63,7 @@ function instantiateGameObjects(): void {
     ground = new Ground(ctx, scaleRatio, gameHeight);
     obstaclesController = new ObstaclesController(ctx, scaleRatio);
     score = new Score(ctx, scaleRatio);
+    clouds = new Clouds(ctx, scaleRatio);
 }
 
 function showGameover(): void {
@@ -118,6 +121,7 @@ function gameLoop(currentTime: number): void {
 
     //Update objects
     if (!gameover && !waitingToStart) {
+        clouds.update(gameSpeed, deltaTime);
         ground.update(gameSpeed, deltaTime);
         obstaclesController.update(gameSpeed, deltaTime);
         player.update(gameSpeed, deltaTime);
@@ -132,6 +136,7 @@ function gameLoop(currentTime: number): void {
     }
 
     //Draw objects
+    clouds.draw();
     ground.draw();
     obstaclesController.draw();
     player.draw();
